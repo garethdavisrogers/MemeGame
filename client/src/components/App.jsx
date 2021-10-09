@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Button, Input } from "@material-ui/core";
 
-class App extends React.Component {
-  constructor() {
-    super();
+const App = () => {
+  const [nameInput, setNameInput] = useState("");
+  const getFields = (e) => {
+    setNameInput(e.target.value);
+  };
 
-    this.state = {};
-  }
+  const submitName = () => {
+    console.log(nameInput);
+  };
 
-  render() {
-    return <div>Hello World</div>;
-  }
-}
+  return (
+    <div>
+      <Input type="text" onChange={getFields}></Input>
+      <Button variant="contained" color="primary" onClick={submitName}>
+        Hey
+      </Button>
+    </div>
+  );
+};
 
 export default App;
